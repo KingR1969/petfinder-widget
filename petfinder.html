@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Petfinder Widget</title>
+    <!-- Petfinder script -->
     <script src="https://www.petfinder.com/pet-scroller.bundle.js"></script>
     <style>
         body {
@@ -17,6 +18,7 @@
     </style>
 </head>
 <body>
+    <!-- Petfinder Scroller Widget -->
     <pet-scroller
         s3Url="https://dbw3zep4prcju.cloudfront.net/"
         apiBase="https://psl.petfinder.com/graphql"
@@ -25,9 +27,22 @@
         petfinderUrl="https://www.petfinder.com/"
         hideBreed="true"
         limit="24"
-        imageSize="SMALL"
         columns="3"
+        imageSize="SMALL"
+        id="myPetScroller"
     ></pet-scroller>
+
+    <!-- Force small images and columns -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const scroller = document.getElementById("myPetScroller");
+        if (scroller) {
+            scroller.setAttribute("imageSize", "SMALL");
+            scroller.setAttribute("columns", "3");
+        }
+    });
+    </script>
 </body>
 </html>
+
 
